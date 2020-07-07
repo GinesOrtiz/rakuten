@@ -89,7 +89,9 @@ const Popular = () => {
               key={step.id}
               onClick={() => onMoveSlider(pos, true)}
             >
-              <div className={'steps-button'} />{' '}
+              <div
+                className={`steps-button ${pos === position ? 'active' : ''}`}
+              />
             </div>
           ))}
         </div>

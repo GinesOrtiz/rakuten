@@ -25,7 +25,7 @@ const TrailerPage = () => {
       type: 'section',
       section: { name: 'Trailer', title: '' },
     })
-  }, [onRequestTrailer])
+  }, [onRequestTrailer, dispatch])
 
   if (loading) {
     return (

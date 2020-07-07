@@ -1,0 +1,4 @@
+{
+  "baseUrl": "http://localhost.rakuten.tv:3000",
+  "watchForFileChanges": false
+}
