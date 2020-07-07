@@ -6,6 +6,7 @@ import Header from './components/header/Header'
 import HomePage from './pages/home/Home'
 import MoviePage from './pages/movie/Movie'
 import NotFoundPage from './pages/notFound/NotFound'
+import TrailerPage from './pages/trailer/Trailer'
 
 const App = () => {
   const routes = [
@@ -16,6 +17,10 @@ const App = () => {
     {
       path: '/movie/:id',
       component: MoviePage,
+    },
+    {
+      path: '/trailer/:id',
+      component: TrailerPage,
     },
   ]
 

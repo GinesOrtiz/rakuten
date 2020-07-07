@@ -6,8 +6,6 @@ import './styles.scss'
 
 const rootElement = document.querySelector('#rakuten')
 
-console.log(process.env)
-
 ReactDOM.render(
   <React.StrictMode>
     <App />

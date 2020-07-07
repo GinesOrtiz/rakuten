@@ -1,0 +1,45 @@
+@import '../../variables';
+
+.cover {
+  position: relative;
+  margin-bottom: 24px;
+  &-artwork {
+    padding: 15% 0;
+    background: $black;
+    background-size: cover;
+    width: 100%;
+
+    @include for-phone-only {
+      padding: 35% 0;
+    }
+  }
+
+  &-content {
+    @include absoluteFull;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 56px;
+    @include gradient(to bottom, $gradient);
+
+    .content-title {
+      display: flex;
+      font-size: 3vw;
+      font-weight: bold;
+      max-width: 70%;
+      text-align: center;
+      margin-bottom: 24px;
+
+      @include for-phone-only {
+        max-width: 60%;
+        font-size: 7vw;
+      }
+
+      @include for-big-desktop-up {
+        font-size: 48px;
+      }
+    }
+  }
+}

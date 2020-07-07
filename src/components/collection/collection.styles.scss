@@ -1,28 +1,69 @@
+@import '../../variables';
+
 .collection {
+  margin-bottom: 24px;
+
   &-title {
-    height: 20px;
+    height: 36px;
+    line-height: 30px;
+    font-weight: bold;
+    font-size: 20px;
+    padding-left: 16px;
   }
   &-wrapper {
     position: relative;
+    overflow: hidden;
   }
   &-slider {
     display: flex;
-    overflow: hidden;
+    &.animated {
+      transition: all 0.5s ease-in-out;
+    }
   }
   &-button {
-    background: rgba(red, 0.3);
     border: none;
     position: absolute;
     top: 0;
     height: 100%;
     width: 60px;
+    background: transparent;
+    outline: none;
+    font-size: 3vw;
+    color: white;
+    overflow: hidden;
+
+    @include for-big-desktop-up {
+      font-size: 42px;
+    }
+
+    @include for-phone-only {
+      font-size: 8vw;
+      width: 60px;
+      font-weight: bold;
+    }
+
+    &:before {
+      font-weight: bold;
+      text-shadow: 0 0 10px rgba($black, 0.5);
+      width: 40px;
+    }
 
     &.prev {
       left: 0;
+      @include gradient(to left, $gradient);
+      &:before {
+        content: $prevIcon;
+        margin-right: 12px;
+      }
     }
 
     &.next {
       right: 0;
+      @include gradient(to right, $gradient);
+      &:before {
+        margin-left: 12px;
+        content: $nextIcon;
+      }
     }
   }
 }

@@ -1,9 +1,13 @@
-@import "../../styles";
+@import '../../variables';
 
 .media {
   display: flex;
   min-width: calc(100% / 6.35);
-  padding-left: 16px;
+  padding: 0 8px;
+
+  &:first-child {
+    margin-left: 10px;
+  }
 
   @include for-phone-only {
     min-width: calc(100% / 2.35);
@@ -17,34 +21,60 @@
     min-width: calc(100% / 5.35);
   }
 
-
   @include for-big-desktop-up {
     min-width: calc(100% / 7.35);
   }
 
   &-artwork {
     padding: 70% 0;
-    background: red;
+    background: $background;
     width: 100%;
     position: relative;
+    border-radius: 3px;
+    overflow: hidden;
   }
 
   .artwork {
     &-content {
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      position: absolute;
+      @include absoluteFull;
+      display: flex;
+      height: 100%;
+      align-items: center;
+
+      &:before {
+        content: '';
+        box-shadow: inset 0 0 0 3px transparent;
+        z-index: 2;
+        @include absoluteFull;
+      }
+
+      &:hover {
+        &:before {
+          box-shadow: inset 0 0 0 4px $yellow;
+        }
+      }
+
       img {
         display: block;
         width: 100%;
         height: 100%;
+        z-index: 1;
+      }
+
+      .content-title {
+        display: flex;
+        width: 100%;
+        padding: 0 14px;
+        justify-content: center;
       }
     }
   }
 
   a {
-    display: block;
+    display: flex;
+    width: 100%;
+    color: $greyText;
+    text-decoration: none;
+    text-align: center;
   }
 }

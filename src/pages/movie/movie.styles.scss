@@ -1,0 +1,72 @@
+@import '../../variables';
+
+.movie {
+  &.main-section {
+    background: $lightMain;
+    color: $black;
+  }
+  .detail-section,
+  .detail-stream,
+  .info-section {
+    padding: 24px;
+    .section-title {
+      margin: 0;
+    }
+  }
+
+  .detail {
+    &-value {
+      text-align: justify;
+    }
+  }
+
+  .info {
+    &-section {
+      display: flex;
+    }
+    &-group {
+      width: 100%;
+    }
+    &-value {
+      font-weight: bold;
+    }
+  }
+
+  .detail-stream {
+    display: flex;
+
+    @include for-phone-only {
+      flex-direction: column;
+    }
+
+    .detail-column {
+      width: 100%;
+    }
+  }
+
+  .actors {
+    &-section {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 16px 0;
+    }
+    &-profile {
+      margin-right: 16px;
+      width: 100px;
+    }
+    &-photo {
+      width: 100px;
+      height: 140px;
+      background-position: center;
+      border-radius: 3px;
+      background-size: cover;
+      background-color: $greyText;
+    }
+    &-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: $greyText;
+      padding: 6px 0;
+    }
+  }
+}

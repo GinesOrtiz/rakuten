@@ -9,15 +9,18 @@ const Media = ({ content }) => {
 
   return (
     <div className={'media'}>
-      <div className={'media-artwork'}>
-        <div className={'artwork-content'}>
-          <Link to={`/movie/${content.id}`}>
+      <Link to={`/movie/${content.id}`}>
+        <div className={'media-artwork'}>
+          <div className={'artwork-content'}>
+            <div className={'content-title'}>{content.title}</div>
+          </div>
+          <div className={'artwork-content'}>
             {content.title && (
               <img alt={content.title} src={getImage(content.images.artwork)} />
             )}
-          </Link>
+          </div>
         </div>
-      </div>
+      </Link>
     </div>
   )
 }

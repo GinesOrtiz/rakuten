@@ -11,11 +11,11 @@ const HomePage = () => {
   const { state, dispatch } = useContext(RakutenContext)
 
   useEffect(() => {
-    dispatch({ type: 'section', section: 'Rakuten' })
+    dispatch({ type: 'section', section: { name: 'Inicio' } })
   }, [dispatch])
 
   return (
-    <div className={'home'}>
+    <div className={'home main-section'}>
       <Popular />
       {state.collectionsList.map((collection) => (
         <Collection key={collection} id={collection} />

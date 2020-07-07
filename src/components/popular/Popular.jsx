@@ -1,7 +1,9 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import { RakutenContext } from '../../context/rakuten.context'
 import { getPopular } from './popular.service'
+import { getImage } from '../../services/images'
 
 import './popular.styles.scss'
 
@@ -13,16 +15,18 @@ const Popular = () => {
 
   const onGetPopular = useCallback(async () => {
     const popular = await getPopular()
+
     dispatch({ type: 'popular', data: popular })
     setList([popular[0]])
   }, [dispatch])
 
-  const onMoveSlider = (amount) => {
+  const onMoveSlider = (amount, exact = false) => {
     let newPosition = position + amount
     const newList = [...list]
 
     newPosition = newPosition < 0 ? popular.length - 1 : newPosition
     newPosition = newPosition > popular.length - 1 ? 0 : newPosition
+    newPosition = exact ? amount : newPosition
 
     setPosition(newPosition)
 
@@ -34,12 +38,11 @@ const Popular = () => {
     setList(newList)
   }
 
-  const getImage = (artwork) =>
-    artwork.replace('.jpeg', '-width1000-quality80.jpeg')
-
   useEffect(() => {
     if (!popular) {
       onGetPopular()
+    } else {
+      setList([popular[0]])
     }
   }, [onGetPopular, popular])
 
@@ -57,16 +60,38 @@ const Popular = () => {
       <div className={'artwork-content'}>
         {list.map((media, pos) => (
           <div
-            key={media.id}
+            key={`${media.id}-${pos}`}
             className={`artwork-image ${pos > 0 ? 'active' : ''}`}
             style={{
-              backgroundImage: `url(${getImage(media.images.snapshot)})`,
+              backgroundImage: `url(${getImage(media.images.snapshot, 1000)})`,
             }}
-          />
+          >
+            <div className={'content-info'}>
+              <h1 className={'info-title'}>{media.title}</h1>
+              <Link to={`/movie/${media.id}`} className={'button'}>
+                Ver ahora gratis
+              </Link>
+            </div>
+          </div>
         ))}
-        <div className={'artwork-actions'}>
-          <button onClick={() => onMoveSlider(-1)}>-</button>
-          <button onClick={() => onMoveSlider(1)}>+</button>
+        <button
+          className={'actions-button prev'}
+          onClick={() => onMoveSlider(-1)}
+        />
+        <button
+          className={'actions-button next'}
+          onClick={() => onMoveSlider(1)}
+        />
+        <div className={'actions-steps'}>
+          {popular.map((step, pos) => (
+            <div
+              className={'steps-wrapper'}
+              key={step.id}
+              onClick={() => onMoveSlider(pos, true)}
+            >
+              <div className={'steps-button'} />{' '}
+            </div>
+          ))}
         </div>
       </div>
     </div>

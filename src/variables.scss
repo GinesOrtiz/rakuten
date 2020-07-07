@@ -1,0 +1,55 @@
+$black: #181818;
+$background: #101010;
+$main: #171717;
+$lightMain: #f1f1f1;
+$greyText: #737373;
+$yellow: #ffe300;
+
+$maxWidth: 1680px;
+$header: 56px;
+
+$prevIcon: '\2329';
+$nextIcon: '\232a';
+
+$gradient: transparent, rgba($black, 0.7);
+
+@mixin for-phone-only {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) {
+    @content;
+  }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1400px) {
+    @content;
+  }
+}
+
+@mixin gradient($direction, $list) {
+  background: -webkit-linear-gradient($direction, $list);
+  background: -moz-linear-gradient($direction, $list);
+  background: -o-linear-gradient($direction, $list);
+  background: linear-gradient($direction, $list);
+}
+
+@mixin absoluteFull {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+}
