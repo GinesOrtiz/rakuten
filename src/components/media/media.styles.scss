@@ -1,0 +1,50 @@
+@import "../../styles";
+
+.media {
+  display: flex;
+  min-width: calc(100% / 6.35);
+  padding-left: 16px;
+
+  @include for-phone-only {
+    min-width: calc(100% / 2.35);
+  }
+
+  @include for-tablet-portrait-up {
+    min-width: calc(100% / 4.35);
+  }
+
+  @include for-tablet-landscape-up {
+    min-width: calc(100% / 5.35);
+  }
+
+
+  @include for-big-desktop-up {
+    min-width: calc(100% / 7.35);
+  }
+
+  &-artwork {
+    padding: 70% 0;
+    background: red;
+    width: 100%;
+    position: relative;
+  }
+
+  .artwork {
+    &-content {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  a {
+    display: block;
+  }
+}

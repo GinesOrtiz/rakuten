@@ -1,0 +1,28 @@
+.collection {
+  &-title {
+    height: 20px;
+  }
+  &-wrapper {
+    position: relative;
+  }
+  &-slider {
+    display: flex;
+    overflow: hidden;
+  }
+  &-button {
+    background: rgba(red, 0.3);
+    border: none;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 60px;
+
+    &.prev {
+      left: 0;
+    }
+
+    &.next {
+      right: 0;
+    }
+  }
+}
