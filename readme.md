@@ -10,22 +10,28 @@ APP_URL=https://gizmo.rakuten.tv/v3
 
 ## How to run the project
 
-```
+```bash
 npm i
 npm start
+```
+
+## How to build the project
+
+```bash
+npm run build
 ```
 
 ## Run Cypress tests
 
 With visual interface
 
-```
+```bash
 npm run test
 ```
 
 With command line interface
 
-```
+```bash
 npm run test-run
 ```
 
