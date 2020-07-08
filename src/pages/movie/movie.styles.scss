@@ -1,6 +1,9 @@
 @import '../../variables';
 
 .movie {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100% - #{$header});
   &.main-section {
     background: $lightMain;
     color: $black;

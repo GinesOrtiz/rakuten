@@ -33,7 +33,11 @@ const Cover = ({ media }) => {
 }
 
 Cover.propTypes = {
-  media: propTypes.object.isRequired,
+  media: propTypes.object,
+}
+
+Cover.defaultProps = {
+  media: null,
 }
 
 export default Cover
