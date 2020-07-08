@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import propTypes from 'prop-types'
 
 import './media.styles.scss'
 
@@ -23,6 +24,10 @@ const Media = ({ content }) => {
       </Link>
     </div>
   )
+}
+
+Media.propTypes = {
+  content: propTypes.object.isRequired,
 }
 
 export default Media

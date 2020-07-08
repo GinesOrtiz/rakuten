@@ -1,4 +1,5 @@
 import React from 'react'
+import propTypes from 'prop-types'
 
 import { getImage } from '../../services/images'
 import { Link } from 'react-router-dom'
@@ -29,6 +30,10 @@ const Cover = ({ media }) => {
       </div>
     </div>
   )
+}
+
+Cover.propTypes = {
+  media: propTypes.object.isRequired,
 }
 
 export default Cover

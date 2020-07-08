@@ -27,6 +27,7 @@ as Redux does
 test
 - All tests are Integration tests using `Cypress` because the logic of each component its not complex or with a ton of 
 cases where unit testing will come more handy
+- Instead of going for a fully typed app, on my experience, using something light as `prop-types` its more than enough  
 
 ## Extra explanation
 The app is using the context to store the collections requested so when you go back to the home, all the information is
