@@ -9,6 +9,11 @@
   .detail-stream,
   .info-section {
     padding: 24px;
+
+    @include for-phone-only {
+      padding: 8px 24px;
+    }
+
     .section-title {
       margin: 0;
     }
@@ -23,12 +28,29 @@
   .info {
     &-section {
       display: flex;
+
+      @include for-phone-only {
+        flex-direction: column;
+      }
     }
     &-group {
       width: 100%;
+
+      @include for-phone-only {
+        display: flex;
+        margin-bottom: 8px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
     }
     &-value {
       font-weight: bold;
+
+      @include for-phone-only {
+        padding-left: 4px;
+      }
     }
   }
 
@@ -51,8 +73,13 @@
       margin: 16px 0;
     }
     &-profile {
-      margin-right: 16px;
-      width: 100px;
+      padding: 0 8px;
+      width: 120px;
+      text-align: center;
+
+      @include for-phone-only {
+        flex: 1;
+      }
     }
     &-photo {
       width: 100px;
@@ -61,6 +88,7 @@
       border-radius: 3px;
       background-size: cover;
       background-color: $greyText;
+      margin: 0 auto;
     }
     &-name {
       font-size: 14px;

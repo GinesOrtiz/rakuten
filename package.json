@@ -6,7 +6,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "cypress open --env configFile=config.json"
+    "test": "cypress open --env configFile=config.json",
+    "test-run": "cypress run --env configFile=config.json"
   },
   "author": "",
   "license": "ISC",

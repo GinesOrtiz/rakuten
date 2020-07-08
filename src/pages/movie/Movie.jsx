@@ -68,7 +68,7 @@ const MoviePage = () => {
       <div className={'info-section'}>
         {details.map((detail) => (
           <div className={'info-group'} key={detail.label}>
-            <div className={'info-label'}>{detail.label}</div>
+            <div className={'info-label'}>{detail.label}:</div>
             <div className={'info-value'}>{detail.value}</div>
           </div>
         ))}
